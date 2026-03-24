@@ -1,0 +1,5 @@
+Place your one-page resume here as:
+
+  resume.pdf
+
+The site’s “Resume (PDF)” and “Download resume” buttons link to /resume.pdf.

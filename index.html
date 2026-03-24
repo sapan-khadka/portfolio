@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sapan Khadka | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sapan Khadka - Full-stack developer and CS student specializing in AI, security, and modern web experiences." />
+  <meta name="author" content="Sapan Khadka" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="color-scheme" content="dark light" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sapan Khadka | Portfolio" />
+  <meta property="og:description" content="Full-stack developer and CS student — AI, security, and modern web experiences." />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sapan Khadka | Portfolio" />
+  <meta name="twitter:description" content="Full-stack developer and CS student — AI, security, and modern web experiences." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23d946ef'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='21' text-anchor='middle' fill='%23020617' font-family='system-ui,sans-serif' font-size='13' font-weight='700'%3ESK%3C/text%3E%3C/svg%3E" />
+
+  <!-- Preconnect to external domains for better performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Sapan Khadka","jobTitle":"Full-stack developer","email":"sapankhadka110@gmail.com","url":"https://www.linkedin.com/in/sapan-khadka55/","sameAs":["https://github.com/sapan-khadka","https://www.linkedin.com/in/sapan-khadka55/"],"knowsAbout":["Web development","Artificial intelligence","Security"]}
+  </script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        fontFamily: {
+          sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        },
+        extend: {
+          colors: {
+            accent: {
+              500: '#22d3ee',
+              600: '#06b6d4',
+            },
+          },
+          boxShadow: {
+            'glow': '0 0 40px rgba(34, 211, 238, 0.35)',
+          },
+          animation: {
+            float: 'float 8s ease-in-out infinite',
+            floatSlow: 'float 14s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translate3d(0, 0, 0)' },
+              '50%': { transform: 'translate3d(12px, -18px, 0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Inline pre-render theme script: set theme before paint to avoid flash -->
+  <script>
+    (function(){
+      try {
+        var theme = null;
+        try { theme = localStorage.getItem('theme'); } catch(e) { theme = null; }
+        if (!theme) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+          else theme = 'light';
+        }
+        // set html class early
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+
+        // inject a small inline style to ensure background/text are correct before full CSS loads
+        var s = document.createElement('style');
+        s.id = 'init-theme';
+        if (theme === 'dark') {
+          s.innerHTML = 'body{background:#020617 !important;color:#f8fafc !important}';
+        } else {
+          s.innerHTML = 'body{background:#ffffff !important;color:#0f1724 !important}';
+        }
+        document.head.appendChild(s);
+      } catch (e) {
+        /* ignore */
+      }
+    })();
+  </script>
+
+  <style>
+    /* Gradient background + blur blobs */
+    .bg-radial {
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.18), transparent 55%),
+        radial-gradient(circle at top right, rgba(236, 72, 153, 0.22), transparent 55%),
+        #020617;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .gradient-border {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+    }
+
+    .gradient-border::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(120deg,
+        rgba(56, 189, 248, 0.8),
+        rgba(236, 72, 153, 0.85),
+        rgba(96, 165, 250, 0.9));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      border-radius: inherit;
+    }
+
+    .gradient-border:hover::before {
+      opacity: 1;
+    }
+
+    .gradient-border-inner {
+      position: relative;
+      z-index: 1;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+    }
+
+    .section-fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .section-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Avatar / profile-picture modal styles */
+    .avatar {
+      display: inline-block;
+      border-radius: 9999px;
+      padding: 0;
+      background: linear-gradient(120deg, rgba(56,189,248,0.12), rgba(236,72,153,0.12));
+      border: 2px solid rgba(148,163,184,0.08);
+      cursor: pointer;
+    }
+
+    .avatar-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9999px;
+    }
+
+    .dp-modal {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+
+    .dp-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .dp-modal-dialog {
+      width: min(60vmin, 640px);
+      height: min(60vmin, 640px);
+      border-radius: 9999px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      transform: scale(0.96);
+      transition: transform 220ms cubic-bezier(.2,.9,.3,1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+
+    .dp-modal.open .dp-modal-dialog {
+      transform: scale(1);
+    }
+
+    .dp-modal-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      background: #071024;
+    }
+
+    @media (max-width: 640px) {
+      .dp-modal-dialog {
+        width: min(80vmin, 420px);
+        height: min(80vmin, 420px);
+      }
+    }
+
+    /* Instagram-like animated gradient ring */
+    .insta-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      padding: 3px;
+      background: conic-gradient(from 0deg, #feda75, #fa709a, #7f00ff, #00c6ff, #feda75);
+      animation: ring-rotate 4s linear infinite;
+      transition: transform 180ms ease;
+      will-change: transform;
+    }
+
+    .insta-ring:hover {
+      transform: scale(1.04);
+    }
+
+    .insta-ring:focus-within {
+      outline: 3px solid rgba(34,211,238,0.12);
+      outline-offset: 3px;
+    }
+
+    @keyframes ring-rotate {
+      to { transform: rotate(1turn); }
+    }
+
+    .insta-ring .avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      overflow: hidden;
+      background: rgba(15,23,42,0.9);
+      border: 2px solid rgba(0,0,0,0.12);
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    .insta-ring .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 9999px;
+    }
+
+    /* Theme variables and light-mode overrides */
+    :root {
+      --page-bg: #ffffff;
+      --text-main: #0f1724;
+      --muted: #475569;
+      --card-bg: rgba(255,255,255,0.9);
+      --card-border: rgba(15,23,42,0.06);
+      --glass-bg: rgba(255,255,255,0.85);
+    }
+
+    .dark {
+      --page-bg: #020617;
+      --text-main: #f8fafc;
+      --muted: #94a3b8;
+      --card-bg: rgba(15,23,42,0.9);
+      --card-border: rgba(148,163,184,0.25);
+      --glass-bg: rgba(15,23,42,0.8);
+    }
+
+    body {
+      background-color: var(--page-bg) !important;
+      color: var(--text-main) !important;
+    }
+
+    /* Smooth theme transitions */
+    body, header, footer, main, .gradient-border-inner, .glass {
+      transition: background-color 240ms ease, color 240ms ease, border-color 200ms ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, header, footer, main, .gradient-border-inner, .glass,
+      .section-fade, .gradient-border::before, .dp-modal, .dp-modal-dialog,
+      .insta-ring { 
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    header, footer, main, .gradient-border-inner, .glass, .rounded-xl, .rounded-2xl {
+      background-color: var(--card-bg) !important;
+      color: var(--text-main) !important;
+      border-color: var(--card-border) !important;
+    }
+
+    .text-slate-300, .text-slate-400, .text-slate-500 {
+      color: var(--muted) !important;
+    }
+
+    a, button, .inline-flex, .inline-block {
+      color: inherit !important;
+    }
+
+    /* Semantic utility classes */
+    .card {
+      background-color: var(--card-bg) !important;
+      color: var(--text-main) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 0.75rem !important;
+    }
+
+    .panel { padding: 1rem !important; }
+    .profile-card { padding: 1rem !important; }
+    .project-card { padding: 1rem !important; display: flex; flex-direction: column; gap: 0.5rem; }
+    .stat-card { padding: 0.5rem 0.75rem !important; border-radius: 0.75rem !important; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.18rem 0.5rem;
+      border-radius: 9999px;
+      background-color: rgba(245,245,245,0.95);
+      color: #0f1724;
+      border: 1px solid rgba(15,23,42,0.06);
+      font-size: 0.7rem;
+    }
+
+    .dark .badge {
+      background-color: rgba(30,41,59,0.6);
+      color: #e2e8f0;
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+
+    /* Light mode overrides */
+    html:not(.dark) {
+      --card-bg: rgba(255,255,255,0.98);
+      --card-border: rgba(15,23,42,0.06);
+      --muted: #475569;
+    }
+
+    html:not(.dark) .bg-slate-900,
+    html:not(.dark) .bg-slate-950,
+    html:not(.dark) .bg-slate-900\/80,
+    html:not(.dark) .bg-slate-950\/70,
+    html:not(.dark) .bg-slate-900\/70,
+    html:not(.dark) .bg-slate-800\/80 {
+      background-color: var(--card-bg) !important;
+      background-image: none !important;
+    }
+
+    html:not(.dark) .border-slate-700\/70,
+    html:not(.dark) .border-slate-800\/70,
+    html:not(.dark) .border-slate-700 {
+      border-color: var(--card-border) !important;
+    }
+
+    html:not(.dark) .text-slate-50,
+    html:not(.dark) .text-slate-100,
+    html:not(.dark) .text-slate-200 {
+      color: var(--text-main) !important;
+    }
+
+    html:not(.dark) .text-slate-300,
+    html:not(.dark) .text-slate-400,
+    html:not(.dark) .text-slate-500 {
+      color: var(--muted) !important;
+    }
+
+    html:not(.dark) [class*="bg-slate-"] {
+      background-color: var(--card-bg) !important;
+      background-image: none !important;
+    }
+
+    html:not(.dark) [class*="text-slate-"] {
+      color: var(--text-main) !important;
+    }
+
+    html:not(.dark) [class*="border-slate-"] {
+      border-color: var(--card-border) !important;
+    }
+
+    /* Pastel backgrounds for key panels in light mode */
+    html:not(.dark) #hero .gradient-border-inner {
+      background: linear-gradient(135deg, rgba(255,249,230,0.95), rgba(255,240,245,0.95)) !important;
+      border-color: rgba(15,23,42,0.04) !important;
+    }
+
+    html:not(.dark) #projects .gradient-border-inner,
+    html:not(.dark) #projects .rounded-xl {
+      background: linear-gradient(135deg, rgba(237,252,255,0.95), rgba(245,250,255,0.95)) !important;
+      border-color: rgba(15,23,42,0.04) !important;
+    }
+
+    html:not(.dark) #contact .gradient-border-inner {
+      background: linear-gradient(135deg, rgba(255,245,250,0.96), rgba(255,250,240,0.96)) !important;
+      border-color: rgba(15,23,42,0.04) !important;
+    }
+
+    html:not(.dark) h1, html:not(.dark) h2, html:not(.dark) h3, html:not(.dark) h4 {
+      color: var(--text-main) !important;
+    }
+
+    html:not(.dark) nav a {
+      color: var(--muted) !important;
+    }
+    html:not(.dark) nav a:hover {
+      color: var(--text-main) !important;
+    }
+
+    html:not(.dark) .rounded-2xl,
+    html:not(.dark) .rounded-xl,
+    html:not(.dark) .glass,
+    html:not(.dark) .gradient-border-inner,
+    html:not(.dark) .card,
+    html:not(.dark) .panel {
+      background-color: var(--card-bg) !important;
+      color: var(--text-main) !important;
+      border-color: var(--card-border) !important;
+      background-image: none !important;
+    }
+
+    html:not(.dark) .bg-accent-500,
+    html:not(.dark) .bg-accent-600 {
+      color: #042f3a !important;
+    }
+
+    html:not(.dark) .rounded-full[class*="bg-"] {
+      background-color: rgba(241, 245, 249, 0.95);
+      color: #334155;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* Skill badges - proper styling for both modes */
+    .skill-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      transition: all 0.2s ease;
+    }
+
+    /* Dark mode skill badges */
+    .dark .skill-badge {
+      background-color: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      color: #e2e8f0;
+    }
+
+    .dark .skill-badge:hover {
+      background-color: rgba(30, 41, 59, 0.7);
+      border-color: rgba(148, 163, 184, 0.3);
+    }
+
+    /* Light mode skill badges */
+    html:not(.dark) .skill-badge {
+      background-color: rgba(241, 245, 249, 0.95);
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      color: #334155;
+    }
+
+    html:not(.dark) .skill-badge:hover {
+      background-color: rgba(226, 232, 240, 1);
+      border-color: rgba(15, 23, 42, 0.15);
+    }
+
+    /* Contact section buttons in light mode */
+    html:not(.dark) #contact .bg-slate-950\/80 {
+      background-color: rgba(241, 245, 249, 0.9) !important;
+      color: #334155 !important;
+    }
+
+    html:not(.dark) #contact .border-slate-600,
+    html:not(.dark) #contact .border-slate-700\/80 {
+      border-color: rgba(15, 23, 42, 0.15) !important;
+    }
+
+    html:not(.dark) #contact a:hover {
+      background-color: rgba(226, 232, 240, 1) !important;
+    }
+
+    /* Focus visible for better accessibility */
+    *:focus-visible {
+      outline: 2px solid rgba(34, 211, 238, 0.6);
+      outline-offset: 2px;
+    }
+
+    /* Skip to main content link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--card-bg);
+      color: var(--text-main);
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Header: subtle elevation when scrolled */
+    #page-header {
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    #page-header.is-scrolled {
+      box-shadow: 0 12px 40px rgba(2, 6, 23, 0.35);
+    }
+    html:not(.dark) #page-header.is-scrolled {
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Mobile menu overlay */
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+    }
+    #mobile-menu.is-open {
+      display: flex;
+    }
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 0.75rem 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      color: var(--text-main);
+    }
+    .mobile-nav-link:last-child {
+      border-bottom: none;
+    }
+
+    /* Modal close control */
+    .dp-modal-close {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 70;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e2e8f0;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .dp-modal-close:hover {
+      background: rgba(30, 41, 59, 0.95);
+      border-color: rgba(34, 211, 238, 0.45);
+    }
+    html:not(.dark) .dp-modal-close {
+      background: rgba(255, 255, 255, 0.92);
+      color: #0f172a;
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-radial text-slate-50 min-h-screen antialiased">
+
+<!-- Skip to main content for accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- BACKGROUND BLOBS -->
+<div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+  <div class="absolute -left-32 -top-32 h-72 w-72 rounded-full bg-cyan-500 opacity-20 blur-3xl animate-float"></div>
+  <div class="absolute -right-40 top-10 h-80 w-80 rounded-full bg-indigo-500 opacity-20 blur-3xl animate-floatSlow"></div>
+  <div class="absolute left-1/3 bottom-[-8rem] h-72 w-72 rounded-full bg-fuchsia-500 opacity-20 blur-3xl animate-float"></div>
+</div>
+
+<!-- PAGE WRAPPER -->
+<div class="relative">
+  <!-- NAVBAR -->
+  <header id="page-header" class="sticky top-0 z-40 border-b backdrop-blur-xl header card">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <a href="#hero" class="flex items-center gap-2 rounded-lg outline-none ring-offset-2 ring-offset-transparent focus-visible:ring-2 focus-visible:ring-cyan-400/60">
+        <div class="h-8 w-8 shrink-0 rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-fuchsia-500 shadow-glow" aria-hidden="true"></div>
+        <div>
+          <div class="text-xs font-semibold tracking-[0.25em] text-slate-400 uppercase">Portfolio</div>
+          <div class="text-sm font-semibold text-slate-100">Sapan Khadka</div>
+        </div>
+      </a>
+
+      <nav id="desktop-nav" class="hidden items-center gap-8 text-xs font-medium sm:flex" aria-label="Main navigation">
+        <a href="#hero" class="nav-desktop-link hover:text-white transition">Home</a>
+        <a href="#projects" class="nav-desktop-link hover:text-white transition">Projects</a>
+        <a href="#experience" class="nav-desktop-link hover:text-white transition">Experience</a>
+        <a href="#skills" class="nav-desktop-link hover:text-white transition">Skills</a>
+        <a href="#resume" class="nav-desktop-link hover:text-white transition">Resume</a>
+        <a href="#contact" class="nav-desktop-link hover:text-white transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button type="button"
+                id="mobile-menu-btn"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border shadow-md text-sm transition sm:hidden"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                aria-label="Open menu">
+          <svg id="icon-menu-open" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+          </svg>
+          <svg id="icon-menu-close" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button id="theme-toggle"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-full border shadow-md text-xs transition"
+                type="button"
+                aria-label="Toggle dark mode">
+          <span aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu"
+       class="fixed inset-x-0 bottom-0 top-[3.25rem] z-30 flex-col overflow-y-auto border-t border-slate-200/40 bg-white/95 backdrop-blur-xl dark:border-slate-800/50 dark:bg-slate-950/95 sm:hidden"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Site menu"
+       aria-hidden="true">
+    <nav class="mx-auto flex w-full max-w-6xl flex-col px-4 py-4 sm:px-6" aria-label="Mobile navigation">
+      <a href="#hero" class="mobile-nav-link mobile-nav-dismiss">Home</a>
+      <a href="#projects" class="mobile-nav-link mobile-nav-dismiss">Projects</a>
+      <a href="#experience" class="mobile-nav-link mobile-nav-dismiss">Experience</a>
+      <a href="#skills" class="mobile-nav-link mobile-nav-dismiss">Skills</a>
+      <a href="#resume" class="mobile-nav-link mobile-nav-dismiss">Resume</a>
+      <a href="#contact" class="mobile-nav-link mobile-nav-dismiss">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 sm:px-6">
+    <!-- HERO -->
+    <section id="hero" class="section-fade py-12 sm:py-16 lg:py-20">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)] lg:items-center">
+        <!-- Left -->
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium mb-4 badge">
+            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" aria-hidden="true"></span>
+            Open to internship & exciting projects
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-slate-50 mb-3">
+            Hi, I'm <span class="bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400 bg-clip-text text-transparent">Sapan Khadka</span>.
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-300 mb-4">
+            <span class="font-medium text-slate-100">I design and build intelligent, modern experiences.</span>
+            <br />
+            <span id="typewriter" class="text-accent-500 font-semibold" aria-live="polite"></span>
+          </p>
+
+          <p class="text-[13px] sm:text-sm text-slate-400 max-w-xl mb-6">
+            A detail-obsessed developer who loves turning complex ideas into clean, interactive
+            and performance-focused web experiences. I enjoy working at the intersection of
+            <span class="text-slate-200 font-medium">design, code, and AI.</span>
+          </p>
+
+          <!-- CTA + Stats -->
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            <a href="#projects"
+              class="inline-flex items-center gap-2 rounded-full bg-accent-500 px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-glow hover:bg-accent-600 transition">
+              View featured projects
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="#contact"
+              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-medium transition card">
+              Let's build something
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-4 text-[11px] sm:text-xs">
+            <div class="flex items-center gap-2 rounded-2xl px-3 py-2 card">
+              <span class="text-lg" aria-hidden="true">⚡</span>
+              <div>
+                <div class="font-semibold">Live, interactive webapps</div>
+                <div class="text-muted">From idea → polished UI</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 rounded-2xl px-3 py-2 card">
+              <span class="text-lg" aria-hidden="true">🤖</span>
+              <div>
+                <div class="font-semibold">AI-powered tools</div>
+                <div class="text-muted">Automation & smart workflows</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 rounded-2xl px-3 py-2 card">
+              <span class="text-lg" aria-hidden="true">🛡</span>
+              <div>
+                <div class="font-semibold">Security-aware thinking</div>
+                <div class="text-muted">From code to deployment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Profile / Highlight card -->
+        <div class="gradient-border">
+          <div class="gradient-border-inner p-4 sm:p-5 lg:p-6 profile-card card">
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="relative h-14 w-14 sm:h-16 sm:w-16">
+                  <div class="insta-ring" aria-hidden="true">
+                    <button id="profileBtn" type="button" class="avatar" aria-label="View profile picture">
+                      <img
+                        id="profileImg"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23e879f9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23a)'/%3E%3Ctext x='32' y='40' text-anchor='middle' fill='%23020617' font-family='system-ui,sans-serif' font-size='22' font-weight='700'%3ESK%3C/text%3E%3C/svg%3E"
+                        data-large-src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23e879f9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='320' height='320' rx='80' fill='url(%23a)'/%3E%3Ctext x='160' y='188' text-anchor='middle' fill='%23020617' font-family='system-ui,sans-serif' font-size='112' font-weight='700'%3ESK%3C/text%3E%3C/svg%3E"
+                        data-photo-src="assets/profile-small.jpg"
+                        data-photo-large="assets/profile-large.jpg"
+                        loading="lazy"
+                        alt="Sapan Khadka"
+                        class="avatar-img"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="text-xs sm:text-sm">
+                  <div class="font-semibold text-slate-50">Sapan Khadka</div>
+                  <div class="text-slate-400">Full-stack developer & CS student</div>
+                </div>
+              </div>
+              <div class="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-3 py-1 text-[10px] sm:text-[11px] font-medium text-emerald-300">
+                Currently crafting cool things
+              </div>
+            </div>
+
+            <p class="text-[11px] sm:text-xs text-slate-300 mb-4">
+              I love building high-impact projects that mix clean design, smooth interactions,
+              and robust engineering. Below is a quick snapshot.
+            </p>
+
+            <div class="grid grid-cols-3 gap-3 text-[11px] sm:text-xs">
+              <div class="rounded-xl px-3 py-2 stat-card card">
+                <div class="text-[10px] mb-1">Projects</div>
+                <div class="text-lg sm:text-xl font-semibold">10+</div>
+                <div class="text-[10px]">Shipped & live</div>
+              </div>
+              <div class="rounded-xl px-3 py-2 stat-card card">
+                <div class="text-[10px] mb-1">Core stack</div>
+                <div class="text-xs font-semibold">Python · JS · React</div>
+                <div class="mt-1 flex flex-wrap gap-1">
+                  <span class="badge">Tailwind</span>
+                  <span class="badge">Node</span>
+                </div>
+              </div>
+              <div class="rounded-xl px-3 py-2 stat-card card">
+                <div class="text-[10px] mb-1">Focus</div>
+                <div class="text-xs font-semibold">AI & Security</div>
+                <div class="mt-1 text-[10px]">automation, privacy-aware apps</div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-[11px] sm:text-xs">
+              <span>Tech I've touched recently:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge">Next.js</span>
+                <span class="badge">FastAPI</span>
+                <span class="badge">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-fade py-10 sm:py-12">
+      <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-semibold text-slate-50">Featured Projects</h2>
+          <p class="text-xs sm:text-sm text-slate-400">
+            A snapshot of things I'm most proud of — blending engineering with experience.
+          </p>
+        </div>
+        <a href="https://github.com/sapan-khadka" target="_blank" rel="noopener noreferrer"
+           class="text-[11px] sm:text-xs text-slate-300 hover:text-white underline-offset-4 hover:underline">
+          View full GitHub profile ↗
+        </a>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <!-- Project 1 -->
+        <article class="group gradient-border">
+          <div class="gradient-border-inner h-full p-4 sm:p-5 flex flex-col project-card card">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-slate-50 flex items-center gap-2">
+                  Smart Email Auto-Responder
+                  <span class="text-[10px] rounded-full bg-emerald-500/15 px-2 py-[2px] text-emerald-300 border border-emerald-500/40">
+                    AI Powered
+                  </span>
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  Learns your writing style, analyzes context, and drafts ready-to-send email replies
+                  using NLP & OpenAI APIs, tightly integrated with Gmail.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-2 text-[10px] sm:text-[11px]">
+              <span class="badge">Python</span>
+              <span class="badge">Streamlit</span>
+              <span class="badge">Gmail API</span>
+              <span class="badge">OpenAI</span>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-[11px] text-slate-400">
+              <a href="https://github.com/sapan-khadka/email-auto-responder" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-1 text-accent-500 group-hover:text-accent-500/90">
+                GitHub repo <span aria-hidden="true">↗</span>
+              </a>
+              <span>2025 · personal project</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="group gradient-border">
+          <div class="gradient-border-inner h-full p-4 sm:p-5 flex flex-col project-card card">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-slate-50 flex items-center gap-2">
+                  Prompt Engineer Assistant
+                  <span class="text-[10px] rounded-full bg-fuchsia-500/15 px-2 py-[2px] text-fuchsia-200 border border-fuchsia-500/40">
+                    UX Focused
+                  </span>
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  Turns vague user ideas into sharp, structured prompts with previews of how different AI
+                  models would respond. Built for creators & devs.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-2 text-[10px] sm:text-[11px]">
+              <span class="badge">React</span>
+              <span class="badge">Tailwind</span>
+              <span class="badge">Node</span>
+              <span class="badge">OpenAI</span>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-[11px] text-slate-400">
+              <a href="https://github.com/sapan-khadka/prompt-engineer-assistant" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-1 text-accent-500 group-hover:text-accent-500/90">
+                Case study <span aria-hidden="true">↗</span>
+              </a>
+              <span>2025 · design + dev</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="group gradient-border">
+          <div class="gradient-border-inner h-full p-4 sm:p-5 flex flex-col project-card card">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-slate-50 flex items-center gap-2">
+                  Secure Medicine Store
+                  <span class="text-[10px] rounded-full bg-sky-500/15 px-2 py-[2px] text-sky-200 border border-sky-500/40">
+                    Full-stack
+                  </span>
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  Full-stack e-commerce prototype with authentication, role-based access, and secure
+                  payments, focusing on performance and security best practices.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-2 text-[10px] sm:text-[11px]">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">MySQL</span>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-[11px] text-slate-400">
+              <a href="https://github.com/sapan-khadka/secure-medicine-store" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-1 text-accent-500 group-hover:text-accent-500/90">
+                GitHub repo <span aria-hidden="true">↗</span>
+              </a>
+              <span>2024 · coursework</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="group gradient-border">
+          <div class="gradient-border-inner h-full p-4 sm:p-5 flex flex-col project-card card">
+            <div class="mb-3 flex items-center justify-between gap-3">
+              <div>
+                <h3 class="text-sm sm:text-base font-semibold text-slate-50 flex items-center gap-2">
+                  Digital Forensics Toolkit
+                </h3>
+                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">
+                  A set of scripts and dashboards built around The Sleuth Kit to analyze disk images,
+                  visualize timelines, and generate forensic-ready reports.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-2 text-[10px] sm:text-[11px]">
+              <span class="badge">Linux</span>
+              <span class="badge">Bash</span>
+              <span class="badge">Python</span>
+              <span class="badge">TSK/Autopsy</span>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-[11px] text-slate-400">
+              <span class="inline-flex items-center gap-1 text-accent-500">
+                Coming soon <span aria-hidden="true">…</span>
+              </span>
+              <span>2025 · security</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / TIMELINE -->
+    <section id="experience" class="section-fade py-10 sm:py-12">
+      <div class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-slate-50">Journey & Experience</h2>
+        <p class="text-xs sm:text-sm text-slate-400">
+          A quick timeline of how I've been leveling up over the years.
+        </p>
+      </div>
+
+      <div class="relative pl-4 sm:pl-6">
+        <div class="absolute left-[9px] sm:left-[13px] top-1 bottom-1 w-[2px] bg-slate-800/70" aria-hidden="true"></div>
+
+        <div class="space-y-6">
+          <!-- Item 1 -->
+          <div class="relative flex gap-4">
+            <div class="mt-1">
+              <div class="h-3 w-3 rounded-full border-2 border-cyan-400 bg-slate-950" aria-hidden="true"></div>
+            </div>
+            <div class="glass rounded-xl px-4 py-3 text-[11px] sm:text-xs">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="font-semibold text-slate-50">Computer Science Student</div>
+                <time class="text-[10px] text-slate-400" datetime="2023">2023 — present</time>
+              </div>
+              <div class="text-slate-300">
+                Focusing on algorithms, operating systems, security, and practical software engineering.
+                Building lots of side projects to apply everything.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="relative flex gap-4">
+            <div class="mt-1">
+              <div class="h-3 w-3 rounded-full border-2 border-fuchsia-400 bg-slate-950" aria-hidden="true"></div>
+            </div>
+            <div class="glass rounded-xl px-4 py-3 text-[11px] sm:text-xs">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="font-semibold text-slate-50">Web & AI Experiments</div>
+                <time class="text-[10px] text-slate-400" datetime="2024">2024 — present</time>
+              </div>
+              <div class="text-slate-300">
+                Rapid-prototyping ideas: email automation, prompt engineering tools, dashboards,
+                and security-aware web apps using Python, JS, and LLM APIs.
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="relative flex gap-4">
+            <div class="mt-1">
+              <div class="h-3 w-3 rounded-full border-2 border-indigo-400 bg-slate-950" aria-hidden="true"></div>
+            </div>
+            <div class="glass rounded-xl px-4 py-3 text-[11px] sm:text-xs">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                <div class="font-semibold text-slate-50">Leadership & Collaboration</div>
+                <div class="text-[10px] text-slate-400">Ongoing</div>
+              </div>
+              <div class="text-slate-300">
+                Working with peers on group projects, mentoring friends on coding basics, and
+                balancing technical depth with communication & design thinking.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-fade py-10 sm:py-12">
+      <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-semibold text-slate-50">Skillset</h2>
+          <p class="text-xs sm:text-sm text-slate-400">
+            The tools and concepts I use to build things that don't just work — they feel good to use.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3 text-[11px] sm:text-xs">
+        <div class="glass rounded-2xl p-4 sm:p-5 card">
+          <h3 class="mb-2 text-sm font-semibold text-slate-100">Core Languages</h3>
+          <p class="text-slate-300 mb-3">
+            Comfortable across backend, scripting, and front-end.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">C</span>
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-4 sm:p-5 card">
+          <h3 class="mb-2 text-sm font-semibold text-slate-100">Frameworks & Tools</h3>
+          <p class="text-slate-300 mb-3">
+            Shipping projects fast while keeping code clean and maintainable.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">Tailwind CSS</span>
+            <span class="skill-badge">Streamlit</span>
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">Git & GitHub</span>
+            <span class="skill-badge">Linux</span>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-4 sm:p-5 card">
+          <h3 class="mb-2 text-sm font-semibold text-slate-100">Concepts & Interests</h3>
+          <p class="text-slate-300 mb-3">
+            The thinking behind the code — how I approach problems.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Algorithms</span>
+            <span class="skill-badge">Data Structures</span>
+            <span class="skill-badge">Web Security</span>
+            <span class="skill-badge">Digital Forensics</span>
+            <span class="skill-badge">LLMs & AI</span>
+            <span class="skill-badge">UX Thinking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="section-fade py-10 sm:py-12" aria-labelledby="resume-heading">
+      <div class="gradient-border">
+        <div class="gradient-border-inner p-5 sm:p-7 card">
+          <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-xl">
+              <h2 id="resume-heading" class="text-xl sm:text-2xl font-semibold text-slate-50 mb-2">Resume</h2>
+              <p class="text-xs sm:text-sm text-slate-400">
+                Grab a PDF or email me for a tailored copy. To enable the download button, add your file as
+                <code class="rounded bg-slate-100 px-1.5 py-0.5 text-[11px] text-slate-800 dark:bg-slate-800/80 dark:text-slate-200">assets/resume.pdf</code>
+                in this project.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a id="resume-download"
+                 href="assets/resume.pdf"
+                 download
+                 class="inline-flex items-center gap-2 rounded-full bg-accent-500 px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-950 shadow-glow transition hover:bg-accent-600">
+                Download PDF
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a href="mailto:sapankhadka110@gmail.com?subject=Resume%20request"
+                 class="inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-xs sm:text-sm font-medium transition card">
+                Email for resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-fade py-10 sm:py-14">
+      <div class="gradient-border">
+        <div class="gradient-border-inner p-5 sm:p-7 contact-card card">
+          <div class="flex flex-wrap items-center justify-between gap-5">
+            <div class="max-w-md">
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-50 mb-2">
+                Let's build something that stands out.
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-300">
+                Whether it's an internship, a freelance project, or just geeking out about AI and
+                security — I'd love to connect.
+              </p>
+            </div>
+            <div class="space-y-3 text-[11px] sm:text-xs text-slate-200">
+              <div>
+                <div class="text-slate-400 mb-1">Email</div>
+                <a href="mailto:sapankhadka110@gmail.com"
+                   class="inline-flex items-center gap-1 rounded-full bg-slate-950/80 px-4 py-2 border border-slate-600 hover:border-accent-500 hover:text-accent-200 transition">
+                  sapankhadka110@gmail.com
+                </a>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/sapan-khadka" target="_blank" rel="noopener noreferrer"
+                   class="rounded-full border border-slate-700/80 bg-slate-950/80 px-3 py-1 hover:border-accent-500 hover:text-accent-200 transition">
+                  GitHub ↗
+                </a>
+                <a href="https://www.linkedin.com/in/sapan-khadka55/" target="_blank" rel="noopener noreferrer"
+                   class="rounded-full border border-slate-700/80 bg-slate-950/80 px-3 py-1 hover:border-accent-500 hover:text-accent-200 transition">
+                  LinkedIn ↗
+                </a>
+                <a href="#resume" class="rounded-full border border-slate-700/80 bg-slate-950/80 px-3 py-1 hover:border-accent-500 hover:text-accent-200 transition">
+                  Resume ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800/70 py-4 text-center text-[10px] sm:text-xs text-slate-500">
+    © <span id="year"></span> Sapan Khadka
+  </footer>
+</div>
+
+<!-- Profile-picture modal (opens when avatar clicked) -->
+<div id="dpModal" class="dp-modal" tabindex="-1" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Profile picture">
+  <button type="button" id="dpModalClose" class="dp-modal-close" aria-label="Close profile picture">&times;</button>
+  <div class="dp-modal-dialog">
+    <img id="dpModalImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23e879f9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='320' height='320' rx='80' fill='url(%23a)'/%3E%3Ctext x='160' y='188' text-anchor='middle' fill='%23020617' font-family='system-ui,sans-serif' font-size='112' font-weight='700'%3ESK%3C/text%3E%3C/svg%3E" alt="Sapan Khadka profile picture" class="dp-modal-img" />
+  </div>
+</div>
+
+<!-- INTERACTIONS -->
+<script>
+  (function() {
+    'use strict';
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Current year
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      var resumeDl = document.getElementById('resume-download');
+      if (resumeDl && resumeDl.getAttribute('href')) {
+        fetch(resumeDl.getAttribute('href'), { method: 'HEAD', cache: 'no-store' })
+          .then(function(r) {
+            if (!r.ok) {
+              resumeDl.classList.add('pointer-events-none', 'opacity-40');
+              resumeDl.setAttribute('aria-disabled', 'true');
+              resumeDl.title = 'Add assets/resume.pdf to enable download';
+            }
+          })
+          .catch(function() {});
+      }
+
+      // Typewriter effect with cleanup
+      const roles = [
+        'Computer Science Student',
+        'Full-stack Developer',
+        'AI & Security Enthusiast',
+        'Builder of Useful Things'
+      ];
+      let roleIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+      let timeoutId = null;
+      const typewriterEl = document.getElementById('typewriter');
+
+      function type() {
+        if (!typewriterEl) return;
+        
+        const current = roles[roleIndex];
+        if (!deleting) {
+          charIndex++;
+          typewriterEl.textContent = current.slice(0, charIndex);
+          if (charIndex === current.length) {
+            deleting = true;
+            timeoutId = setTimeout(type, 1200);
+            return;
+          }
+        } else {
+          charIndex--;
+          typewriterEl.textContent = current.slice(0, charIndex);
+          if (charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+          }
+        }
+        timeoutId = setTimeout(type, deleting ? 50 : 90);
+      }
+
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        type();
+      } else if (typewriterEl) {
+        typewriterEl.textContent = roles[0];
+      }
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', function() {
+        if (timeoutId) clearTimeout(timeoutId);
+      });
+
+      // Theme toggle with improved error handling
+      const themeToggle = document.getElementById('theme-toggle');
+
+      function applyTheme(theme) {
+        const root = document.documentElement;
+        const body = document.body;
+        
+        if (theme === 'dark') {
+          root.classList.add('dark');
+          body.classList.remove('bg-white');
+          body.classList.add('bg-radial');
+          if (themeToggle) {
+            themeToggle.innerHTML = '<span aria-hidden="true">☾</span>';
+            themeToggle.setAttribute('aria-label', 'Switch to light mode');
+          }
+        } else {
+          root.classList.remove('dark');
+          body.classList.remove('bg-radial');
+          body.classList.add('bg-white');
+          if (themeToggle) {
+            themeToggle.innerHTML = '<span aria-hidden="true">☀︎</span>';
+            themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+          }
+        }
+        
+        // Remove pre-render style
+        const tmpStyle = document.getElementById('init-theme');
+        if (tmpStyle && tmpStyle.parentNode) {
+          tmpStyle.parentNode.removeChild(tmpStyle);
+        }
+      }
+
+      // Restore saved theme
+      function initTheme() {
+        let theme = null;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (e) {
+          console.warn('localStorage not available');
+        }
+        
+        if (!theme || (theme !== 'dark' && theme !== 'light')) {
+          theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        applyTheme(theme);
+      }
+
+      initTheme();
+
+      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var iconMenuOpen = document.getElementById('icon-menu-open');
+      var iconMenuClose = document.getElementById('icon-menu-close');
+
+      function setMobileMenuOpen(open) {
+        if (!mobileMenu || !mobileMenuBtn) return;
+        if (open) {
+          mobileMenu.classList.add('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'false');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+          mobileMenuBtn.setAttribute('aria-label', 'Close menu');
+          document.body.classList.add('menu-open');
+          if (iconMenuOpen) iconMenuOpen.classList.add('hidden');
+          if (iconMenuClose) iconMenuClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.remove('is-open');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          mobileMenuBtn.setAttribute('aria-label', 'Open menu');
+          document.body.classList.remove('menu-open');
+          if (iconMenuOpen) iconMenuOpen.classList.remove('hidden');
+          if (iconMenuClose) iconMenuClose.classList.add('hidden');
+        }
+      }
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+          setMobileMenuOpen(!mobileMenu.classList.contains('is-open'));
+        });
+      }
+
+      document.querySelectorAll('.mobile-nav-dismiss').forEach(function(link) {
+        link.addEventListener('click', function() {
+          setMobileMenuOpen(false);
+        });
+      });
+
+      window.addEventListener('resize', function() {
+        if (window.matchMedia('(min-width: 640px)').matches) {
+          setMobileMenuOpen(false);
+        }
+      });
+
+      var pageHeader = document.getElementById('page-header');
+      function updateHeaderScroll() {
+        if (!pageHeader) return;
+        if (window.scrollY > 10) {
+          pageHeader.classList.add('is-scrolled');
+        } else {
+          pageHeader.classList.remove('is-scrolled');
+        }
+      }
+      updateHeaderScroll();
+      window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+
+      // Theme toggle handler
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const root = document.documentElement;
+          const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+          applyTheme(newTheme);
+          
+          try {
+            localStorage.setItem('theme', newTheme);
+          } catch (e) {
+            console.warn('Could not save theme preference');
+          }
+        });
+      }
+
+      // Profile picture modal
+      const profileBtn = document.getElementById('profileBtn');
+      const dpModal = document.getElementById('dpModal');
+      const dpModalImg = document.getElementById('dpModalImg');
+      const profileImg = document.getElementById('profileImg');
+
+      if (profileImg && profileImg.dataset.photoSrc) {
+        var photoProbe = new Image();
+        photoProbe.onload = function() {
+          profileImg.src = profileImg.dataset.photoSrc;
+          if (profileImg.dataset.photoLarge) {
+            profileImg.setAttribute('data-large-src', profileImg.dataset.photoLarge);
+            if (dpModalImg) dpModalImg.src = profileImg.dataset.photoLarge;
+          }
+        };
+        photoProbe.src = profileImg.dataset.photoSrc;
+      }
+
+      function openDpModal() {
+        if (!dpModal || !dpModalImg || !profileImg) return;
+        
+        const largeSrc = profileImg.dataset.largeSrc || profileImg.src;
+        dpModalImg.src = largeSrc;
+        dpModal.setAttribute('aria-hidden', 'false');
+        dpModal.classList.add('open');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        
+        // Focus trap
+        dpModal.focus();
+      }
+
+      function closeDpModal() {
+        if (!dpModal) return;
+        
+        dpModal.classList.remove('open');
+        dpModal.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        
+        // Return focus to button
+        if (profileBtn) profileBtn.focus();
+      }
+
+      if (profileBtn) {
+        profileBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openDpModal();
+        });
+      }
+
+      // Close modal on backdrop click
+      if (dpModal) {
+        dpModal.addEventListener('click', function(e) {
+          if (e.target === dpModal) {
+            closeDpModal();
+          }
+        });
+      }
+
+      var dpModalClose = document.getElementById('dpModalClose');
+      if (dpModalClose) {
+        dpModalClose.addEventListener('click', function(ev) {
+          ev.stopPropagation();
+          closeDpModal();
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Escape') return;
+        if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+          setMobileMenuOpen(false);
+          if (mobileMenuBtn) mobileMenuBtn.focus();
+          return;
+        }
+        if (dpModal && dpModal.classList.contains('open')) {
+          closeDpModal();
+        }
+      });
+
+      // Section fade-in with better performance
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.section-fade').forEach(function(section) {
+        observer.observe(section);
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          
+          e.preventDefault();
+          const target = document.querySelector(href);
+          
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
