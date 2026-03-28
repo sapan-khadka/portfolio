@@ -1,67 +1,62 @@
-# Portfolio — Next.js + Tailwind + FastAPI
+# Portfolio — Next.js + FastAPI
 
-A modern, deployment-ready personal portfolio for an undergraduate in software engineering and AI: responsive layout, dark mode, Framer Motion accents, a **FastAPI** backend for the contact form, and an **optional OpenAI-powered** assistant widget.
+Personal portfolio: Next.js 14 (App Router), TypeScript, Tailwind, Framer Motion, dark/light theme, and an **optional** floating assistant backed by **FastAPI** + OpenAI. Contact is **email / links** (no in-browser form).
 
 ## Structure
 
 | Path | Purpose |
 |------|---------|
-| `frontend/` | Next.js 14 (App Router), TypeScript, Tailwind, `next-themes`, Framer Motion |
-| `backend/` | FastAPI — `POST /contact`, `POST /chat`, `GET /health` |
-| `index.html` | Legacy single-file portfolio (optional; not used by the new app) |
+| `frontend/` | Next.js app — projects, skills, GitHub chart + live badges, terminal strip, resume link |
+| `backend/` | FastAPI — `POST /chat`, `GET /health`, `POST /contact` (API still there if you wire email later) |
+| `index.html` | Legacy single file (not used by the Next app) |
 
 ## Personalize
 
-Edit **`frontend/src/lib/content.ts`** — name, title, links, about copy, education, and projects. Update GitHub URLs to your real repositories.
+Edit **`frontend/src/lib/content.ts`** — name, links, projects, `githubPortfolioRepo` (slug for Shields badges, usually `portfolio`).
 
 ## Run locally
 
-### 1. Backend (terminal A)
+### Backend
 
 ```bash
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env        # optional: add OPENAI_API_KEY for /chat
+cp .env.example .env        # optional: OPENAI_API_KEY for /chat
 uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-### 2. Frontend (terminal B)
+### Frontend
 
 ```bash
 cd frontend
-cp .env.example .env.local  # points to http://127.0.0.1:8000
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The contact form and floating assistant call the API at `NEXT_PUBLIC_API_URL`.
+Leave **`NEXT_PUBLIC_API_URL`** unset in `.env.local` to use the dev **rewrite** to `http://127.0.0.1:8000`, or set it explicitly to that URL. See **`frontend/.env.example`**.
 
-### Optional: OpenAI
+Open [http://localhost:3000](http://localhost:3000).
 
-Add to `backend/.env`:
+### OpenAI (optional)
+
+In `backend/.env`:
 
 ```env
 OPENAI_API_KEY=sk-...
 OPENAI_MODEL=gpt-4o-mini
 ```
 
-Without a key, `/chat` still responds with a friendly fallback message.
+Without a key, `/chat` returns a short fallback message.
 
-## Production deployment
+## Deploy
 
-- **Frontend (Vercel / Netlify):** Connect the `frontend` directory (or monorepo with root set to `frontend`). Set env **`NEXT_PUBLIC_API_URL`** to your public API URL (no trailing slash).
-- **Backend:** Deploy `backend` to Railway, Render, Fly.io, or similar. Set **`ALLOWED_ORIGINS`** to your real site origin(s), comma-separated, e.g. `https://yourname.vercel.app`.
-- **GitHub Pages:** Export the Next app (`output: 'export'` in `next.config.mjs`) or host only the static `out/` folder; you still need a **separately hosted** API for the form and chat.
-
-## Contact form note
-
-Submissions are appended to an in-memory list for demos. For production, wire `POST /contact` to email (Resend, SendGrid) or a database.
+- **Frontend:** Vercel (root **`frontend`**). Set **`NEXT_PUBLIC_API_URL`** to your public API URL (no trailing slash).
+- **Backend:** Railway, Render, Fly.io, etc. Set **`ALLOWED_ORIGINS`** to your site origin(s). Bind `0.0.0.0` and use the host’s **`PORT`**.
 
 ## Scripts
 
 ```bash
-cd frontend && npm run build   # production build
-cd frontend && npm run start   # serve built app
+cd frontend && npm run build && npm run start
 ```
