@@ -6,8 +6,10 @@ export const site = {
   headline: "Software Engineer | AI Systems",
   tagline:
     "I build reliable systems and intelligent automation using Python and modern AI tools.",
-  /** Shown in hero — semester / school context. */
-  location: "Cape Girardeau, MO · CS undergrad (6th semester) · SEMO · May 2027",
+  /** Shown in hero — school context. */
+  location: "Cape Girardeau, MO · CS undergrad · SEMO · May 2027",
+  /** GitHub repo slug for this site — used for live “recent activity” badges (must match your repo name). */
+  githubPortfolioRepo: "portfolio",
   /** Place your PDF at frontend/public/resume.pdf for this link to work. */
   resumeUrl: "/resume.pdf",
   email: "sapankhadka110@gmail.com",

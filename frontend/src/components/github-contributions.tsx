@@ -67,6 +67,46 @@ export function GitHubContributions() {
 
         <motion.div
           {...fade}
+          transition={{ ...fade.transition, delay: 0.055 }}
+          className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+        >
+          <p className="text-xs text-muted sm:mr-2">Live on this repo —</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href={`https://github.com/${user}/${site.githubPortfolioRepo}/commits`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block leading-none"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- shields.io dynamic badge */}
+              <img
+                src={`https://img.shields.io/github/last-commit/${encodeURIComponent(user)}/${encodeURIComponent(site.githubPortfolioRepo)}?style=flat-square&logo=github&label=last%20push&color=0891b2`}
+                alt="Last commit on portfolio repository"
+                height={20}
+                className="h-5"
+                loading="lazy"
+              />
+            </Link>
+            <Link
+              href={`https://github.com/${user}/${site.githubPortfolioRepo}/graphs/commit-activity`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block leading-none"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://img.shields.io/github/commit-activity/m/${encodeURIComponent(user)}/${encodeURIComponent(site.githubPortfolioRepo)}?style=flat-square&logo=github&label=commits%20%2F%20month&color=0891b2`}
+                alt="Commits per month on portfolio repository"
+                height={20}
+                className="h-5"
+                loading="lazy"
+              />
+            </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          {...fade}
           transition={{ ...fade.transition, delay: 0.07 }}
           className="glass-panel glass-hover mt-6 overflow-x-auto rounded-2xl p-4"
         >
